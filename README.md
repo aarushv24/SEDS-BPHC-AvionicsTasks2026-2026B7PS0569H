@@ -6,7 +6,7 @@
 
 For the Finding The Sea Floor Task, I first plotted a static graph with no noise reduction or corrupted value removal using plain matplotlib and putting the #VALUE! as NaN.
 
-For the next step, I implemented pandas to read the csv file (in the first step, I used the vanilla with open('filename.csv')) and clear out the #VALUE! using the pd.to_numeric(..., errors='coerce') function. Then I added subplots since they are necessary or plotting a real time graph via FuncAnimation. To clear out the corrupted values, I looked at the data and set the threshold of the difference between (y-1) and (y+1) to 60m (assuming 'y' is the current point) since almost every value was falling under that category barring a few outliers, ie the corrupted values. Then interpolated them using y.interpolate().
+For the next step, I implemented pandas to read the csv file (in the first step, I used the vanilla with open('filename.csv')) and clear out the #VALUE! using the pd.to_numeric(..., errors='coerce') function. Then I added subplots since they are necessary for plotting a real time graph via FuncAnimation. To clear out the corrupted values, I looked at the data and set the threshold of the difference between (y-1) and (y+1) to 60m (assuming 'y' is the current point) since almost every value was falling under that category barring a few outliers, ie the corrupted values. Then interpolated them using y.interpolate().
 
 To smoothen out the graph, I used the rolling mean method where it looks at 5 points (min. 1 point to prevent NaN for the first and last 5 values), calculates their mean and hence smoothens out the noise by implementing those values. To plot it in real time, I made use of FuncAnimation with interval set at 1 second for every plot.
 
