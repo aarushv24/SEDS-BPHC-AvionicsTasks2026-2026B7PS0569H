@@ -187,7 +187,7 @@ void loop()
   }
   else if(currentState != WRECKED && anchorDropped == 1)
   {
-    // In case of anchor drop, no event matters.
+    // In case of anchor drop, no event matters (other than WRECKED).
     // Ship stays safe and hence all alarms/events are off
     digitalWrite(LEDpin, LOW);
     digitalWrite(buzzPin, LOW);
